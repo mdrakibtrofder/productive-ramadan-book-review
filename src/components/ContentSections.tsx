@@ -54,7 +54,7 @@ const ContentSections = () => {
               whileHover={{ y: -8 }}
               className="relative glass-card rounded-2xl p-6 text-center hover:shadow-xl transition-all group"
             >
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full gradient-gold text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-[#3A756D] text-white flex items-center justify-center font-bold text-lg shadow-lg">
                 {i + 1}
               </div>
               <div className="mt-6 mb-4 w-14 h-14 mx-auto rounded-2xl gradient-copper flex items-center justify-center text-primary-foreground group-hover:glow-copper transition-all">
@@ -99,21 +99,48 @@ const ContentSections = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto"
+          className="max-w-6xl mx-auto"
         >
-          <div className="glass-card rounded-3xl p-8 border-destructive/20 bg-destructive/5 relative overflow-hidden group">
-            <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:scale-110 transition-transform">
-              <Utensils className="w-32 h-32" />
-            </div>
-            <div className="relative z-10">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-destructive/10 text-destructive mb-6">
-                <AlertTriangle className="w-4 h-4" />
-                <span className="text-sm font-bold">বিপরীত চিত্র</span>
+          <div className="glass-card rounded-[2rem] overflow-hidden border-destructive/20 bg-destructive/5 grid lg:grid-cols-2 gap-8 items-center">
+            <div className="relative h-64 lg:h-full min-h-[300px] overflow-hidden">
+              <img
+                src={worldlyRamadanPreparation.image}
+                alt="Worldly Preparation"
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-bold mb-2">
+                  <AlertTriangle className="w-3 h-3" />
+                  বিপরীত চিত্র
+                </div>
+                <h3 className="text-white font-bold text-xl">{worldlyRamadanPreparation.title}</h3>
               </div>
-              <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-4">{worldlyRamadanPreparation.title}</h2>
-              <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">
-                {worldlyRamadanPreparation.description}
-              </p>
+            </div>
+
+            <div className="p-8 lg:p-12 space-y-8">
+              <div className="space-y-6">
+                {worldlyRamadanPreparation.points.map((point, idx) => (
+                  <div key={idx} className="flex gap-4 group/point">
+                    <div className="w-8 h-8 rounded-full bg-destructive/10 text-destructive flex items-center justify-center font-bold text-sm shrink-0 group-hover/point:bg-destructive group-hover/point:text-white transition-all">
+                      {idx + 1}
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-foreground mb-1 group-hover/point:text-destructive transition-colors">{point.title}</h4>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{point.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="p-4 rounded-2xl bg-destructive/10 border border-destructive/20 flex gap-3 items-center">
+                <div className="w-10 h-10 rounded-full bg-destructive/20 flex items-center justify-center text-destructive shrink-0">
+                  <Utensils className="w-5 h-5" />
+                </div>
+                <p className="text-xs font-medium text-destructive">
+                  তারা রামাদানকে কেবল উৎসব বা ভোজের মাস হিসেবে দেখে, আখেরাতের প্রস্তুতির বদলে দুনিয়ার আরাম-আয়েশই তাদের প্রধান লক্ষ্য হয়ে দাঁড়ায়।
+                </p>
+              </div>
             </div>
           </div>
         </motion.div>
