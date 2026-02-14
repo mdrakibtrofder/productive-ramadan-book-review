@@ -222,55 +222,6 @@ const ContentSections = () => {
         </div>
       </section>
 
-      {/* Fasting Levels - Visual */}
-      <section className="container mx-auto">
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">🏆 সিয়ামের তিন স্তর</h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">ইমাম গাজালী (রহ.) এর শ্রেণীবিভাগ অনুসারে</p>
-        </motion.div>
-
-        <div className="max-w-3xl mx-auto space-y-6">
-          {[
-            { level: "প্রথম স্তর", title: "সাধারণ সিয়াম", desc: "শুধু পানাহার ও যৌনমিলন থেকে বিরত থাকা", pct: 33, color: "bg-copper" },
-            { level: "দ্বিতীয় স্তর", title: "বিশেষ সিয়াম", desc: "সব ধরনের পাপ কাজ থেকেও নিজেকে দূরে রাখা", pct: 66, color: "bg-teal-mid" },
-            { level: "তৃতীয় স্তর", title: "সর্বোচ্চ সিয়াম", desc: "খারাপ চিন্তা-ভাবনা থেকেও নিজেকে হেফাজত করা", pct: 100, color: "bg-gold" },
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.2 }}
-              className="glass-card rounded-2xl p-6"
-            >
-              <div className="flex items-center gap-4 mb-3">
-                <div className="w-12 h-12 rounded-2xl gradient-teal flex items-center justify-center text-primary-foreground">
-                  <Flame className="w-6 h-6" />
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-center justify-between mb-1">
-                    <div>
-                      <span className="text-xs text-muted-foreground">{item.level}</span>
-                      <h3 className="font-bold text-foreground">{item.title}</h3>
-                    </div>
-                    <span className="text-2xl font-bold text-copper">{item.pct}%</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
-                </div>
-              </div>
-              <div className="h-3 bg-muted rounded-full overflow-hidden">
-                <motion.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${item.pct}%` }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.5, delay: i * 0.3 }}
-                  className={`h-full ${item.color} rounded-full`}
-                />
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
     </div>
   );
 };
