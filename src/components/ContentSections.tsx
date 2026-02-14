@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
-import { failureReasons, threePSteps, ramadanPreparation } from "@/data/bookData";
+import { failureReasons, threePSteps, ramadanPreparation, allahRamadanPreparation, worldlyRamadanPreparation } from "@/data/bookData";
 import {
   CloudOff, Zap, TrendingDown, BookX, UserX, Clock,
   HeartCrack, Dumbbell, AlertCircle, CalendarX,
   ClipboardList, Settings, RotateCcw, HandMetal, Target,
   BookOpen, RefreshCw, AlertTriangle, Lightbulb, Flame,
+  Lock, DoorOpen, Utensils, Moon,
 } from "lucide-react";
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -25,6 +26,11 @@ const iconMap: Record<string, React.ReactNode> = {
   Target: <Target className="w-5 h-5" />,
   BookOpen: <BookOpen className="w-5 h-5" />,
   RefreshCw: <RefreshCw className="w-5 h-5" />,
+  Lock: <Lock className="w-5 h-5" />,
+  DoorOpen: <DoorOpen className="w-5 h-5" />,
+  Utensils: <Utensils className="w-5 h-5" />,
+  Moon: <Moon className="w-5 h-5" />,
+  Flame: <Flame className="w-5 h-5" />,
 };
 
 const ContentSections = () => {
@@ -33,11 +39,39 @@ const ContentSections = () => {
       {/* Ramadan Preparation Section */}
       <section className="container mx-auto">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">🌙 রামাদানের প্রস্তুতি</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">✨ রামাদানকে ঘিরে আল্লাহর প্রস্তুতি</h2>
+          <p className="text-muted-foreground max-w-xl mx-auto">৫টি উপায়ে আল্লাহ সুবহানাহু ওয়া তাআলা আমাদের জন্য রামাদানকে প্রস্তুত করেন</p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-5 gap-4 max-w-5xl mx-auto mb-20">
+          {allahRamadanPreparation.map((item, i) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              whileHover={{ y: -8 }}
+              className="relative glass-card rounded-2xl p-6 text-center hover:shadow-xl transition-all group"
+            >
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full gradient-gold text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg">
+                {i + 1}
+              </div>
+              <div className="mt-6 mb-4 w-14 h-14 mx-auto rounded-2xl gradient-copper flex items-center justify-center text-primary-foreground group-hover:glow-copper transition-all">
+                {iconMap[item.icon]}
+              </div>
+              <h3 className="font-bold text-foreground mb-2 text-sm">{item.title}</h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">{item.description}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">🌙 ঈমানদারদের প্রস্তুতি</h2>
           <p className="text-muted-foreground max-w-xl mx-auto">ঈমানদারদের রামাদান প্রস্তুতির ৫টি উপায়</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-5 gap-4 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-5 gap-4 max-w-5xl mx-auto mb-24">
           {ramadanPreparation.map((item, i) => (
             <motion.div
               key={item.title}
@@ -59,6 +93,30 @@ const ContentSections = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Worldly Preparation Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto"
+        >
+          <div className="glass-card rounded-3xl p-8 border-destructive/20 bg-destructive/5 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:scale-110 transition-transform">
+              <Utensils className="w-32 h-32" />
+            </div>
+            <div className="relative z-10">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-destructive/10 text-destructive mb-6">
+                <AlertTriangle className="w-4 h-4" />
+                <span className="text-sm font-bold">বিপরীত চিত্র</span>
+              </div>
+              <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-4">{worldlyRamadanPreparation.title}</h2>
+              <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">
+                {worldlyRamadanPreparation.description}
+              </p>
+            </div>
+          </div>
+        </motion.div>
       </section>
 
       {/* 10 Failure Reasons */}

@@ -63,6 +63,7 @@
     --gradient-card-4: linear-gradient(135deg, hsl(28 40% 35%), hsl(28 55% 50%));
     --gradient-card-5: linear-gradient(135deg, hsl(42 50% 35%), hsl(42 60% 50%));
     --gradient-card-6: linear-gradient(135deg, hsl(172 45% 18%), hsl(160 35% 30%));
+    --gradient-gold: linear-gradient(135deg, hsl(42 60% 55%), hsl(42 50% 80%));
 
     --sidebar-background: 170 25% 97%;
     --sidebar-foreground: 170 10% 30%;
@@ -109,6 +110,7 @@
   .gradient-card-4 { background: var(--gradient-card-4); }
   .gradient-card-5 { background: var(--gradient-card-5); }
   .gradient-card-6 { background: var(--gradient-card-6); }
+  .gradient-gold { background: var(--gradient-gold); }
 
   .text-gradient-copper {
     background: var(--gradient-copper);
