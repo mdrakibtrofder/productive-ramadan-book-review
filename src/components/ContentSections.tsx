@@ -82,7 +82,7 @@ const ContentSections = () => {
               whileHover={{ y: -8 }}
               className="relative glass-card rounded-3xl p-8 hover:shadow-2xl transition-all group border-primary/5 hover:border-primary/20 w-full md:w-[calc(50%-1.5rem)] lg:w-[calc(33.33%-1.5rem)]"
             >
-              <div className="absolute -top-4 left-8 w-10 h-10 rounded-full gradient-copper text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg">
+              <div className="absolute -top-4 left-4 w-10 h-10 rounded-full gradient-copper text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg">
                 {i + 1}
               </div>
               <div className="mb-6 w-14 h-14 rounded-2xl gradient-teal flex items-center justify-center text-primary-foreground group-hover:glow-teal transition-all">
