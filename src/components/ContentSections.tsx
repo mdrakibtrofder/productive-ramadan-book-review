@@ -67,11 +67,11 @@ const ContentSections = () => {
         </div>
 
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">🌙 ঈমানদারদের প্রস্তুতি</h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">ঈমানদারদের রামাদান প্রস্তুতির ৫টি উপায়</p>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">🌙 ঈমানদারদের রামাদান প্রস্তুতি</h2>
+          <p className="text-muted-foreground max-w-xl mx-auto">আখিরাত পিয়াসী বান্দারা পাঁচটি উপায়ে প্রস্তুতি নেয়:</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-5 gap-4 max-w-5xl mx-auto mb-24">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-24">
           {ramadanPreparation.map((item, i) => (
             <motion.div
               key={item.title}
@@ -80,16 +80,16 @@ const ContentSections = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               whileHover={{ y: -8 }}
-              className="relative glass-card rounded-2xl p-6 text-center hover:shadow-xl transition-all group"
+              className="relative glass-card rounded-3xl p-8 hover:shadow-2xl transition-all group border-primary/5 hover:border-primary/20"
             >
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full gradient-copper text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg">
+              <div className="absolute -top-4 left-8 w-10 h-10 rounded-full gradient-copper text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg">
                 {i + 1}
               </div>
-              <div className="mt-6 mb-4 w-14 h-14 mx-auto rounded-2xl gradient-teal flex items-center justify-center text-primary-foreground group-hover:glow-teal transition-all">
+              <div className="mb-6 w-14 h-14 rounded-2xl gradient-teal flex items-center justify-center text-primary-foreground group-hover:glow-teal transition-all">
                 {iconMap[item.icon]}
               </div>
-              <h3 className="font-bold text-foreground mb-2 text-sm">{item.title}</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">{item.description}</p>
+              <h3 className="font-bold text-foreground mb-3 text-lg">{item.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
             </motion.div>
           ))}
         </div>
