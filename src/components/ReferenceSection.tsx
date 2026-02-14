@@ -8,14 +8,14 @@ const ReferenceSection = () => {
       title: "প্রোডাক্টিভ রমাদান বই রিভিউ",
       type: "রেফারেন্স নোট",
       description: "মূল বই থেকে সংকলিত রিভিউ নোট",
-      file: "/pdfs/reference-note.pdf",
+      file: "/productive-ramadan-book-review/pdfs/reference-note.pdf",
       color: "gradient-card-1",
     },
     {
       title: "আমার রমযান প্রস্তুতি",
       type: "রেফারেন্স বই",
       description: "রমাদানের পরিপূর্ণ প্রস্তুতি গাইড",
-      file: "/pdfs/reference-book.pdf",
+      file: "/productive-ramadan-book-review/pdfs/reference-book.pdf",
       color: "gradient-card-2",
     },
   ];

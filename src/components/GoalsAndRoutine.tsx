@@ -23,6 +23,7 @@ const iconMap: Record<string, React.ReactNode> = {
   Target: <Target className="w-5 h-5" />,
   Flame: <Flame className="w-5 h-5" />,
   Users: <Users className="w-5 h-5" />,
+  Check: <Check className="w-5 h-5" />,
 };
 
 const GoalsAndRoutine = () => {
@@ -30,56 +31,6 @@ const GoalsAndRoutine = () => {
 
   return (
     <div className="py-20 px-4 space-y-24 bg-secondary/30">
-      {/* Fasting Levels - Visual (Moved from ContentSections) */}
-      <section className="container mx-auto">
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">🏆 সিয়াম-কেন্দ্রিক লক্ষ্য</h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">ইমাম গাজালী (রহ.) এর শ্রেণীবিভাগ অনুসারে সিয়ামের তিন স্তর</p>
-        </motion.div>
-
-        <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-6">
-          {fastingLevels.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.2 }}
-              className="glass-card rounded-2xl p-6 relative overflow-hidden group"
-            >
-              <div className="flex flex-col h-full">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-2xl gradient-teal flex items-center justify-center text-primary-foreground group-hover:glow-teal transition-all">
-                    <Flame className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <span className="text-xs text-muted-foreground">{item.level}</span>
-                    <h3 className="font-bold text-foreground">{item.title}</h3>
-                  </div>
-                </div>
-                <p className="text-sm text-muted-foreground mb-6 flex-grow">{item.description}</p>
-                <div className="space-y-2">
-                  <div className="flex justify-between text-xs font-bold text-copper">
-                    <span>প্রস্তুতির মাত্রা</span>
-                    <span>{item.percentage}%</span>
-                  </div>
-                  <div className="h-2 bg-muted rounded-full overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${item.percentage}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1.5, delay: i * 0.3 }}
-                      className={`h-full rounded-full ${i === 0 ? "bg-copper" : i === 1 ? "bg-teal-mid" : "bg-gold"
-                        }`}
-                    />
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
       {/* Goal Categories - Accordion Cards */}
       <section className="container mx-auto">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
@@ -148,6 +99,53 @@ const GoalsAndRoutine = () => {
         </div>
       </section>
 
+      {/* Fasting Levels - Visual Section */}
+      <section className="container mx-auto">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">🏆 সিয়াম-কেন্দ্রিক লক্ষ্য</h2>
+          <p className="text-muted-foreground max-w-xl mx-auto">ইমাম গাজালী (রহ.) এর শ্রেণীবিভাগ অনুসারে সিয়ামের তিন স্তর</p>
+        </motion.div>
+
+        <div className="max-w-3xl mx-auto space-y-6">
+          {fastingLevels.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.2 }}
+              className="glass-card rounded-2xl p-6"
+            >
+              <div className="flex items-center gap-4 mb-3">
+                <div className="w-12 h-12 rounded-2xl gradient-teal flex items-center justify-center text-primary-foreground">
+                  <Flame className="w-6 h-6" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center justify-between mb-1">
+                    <div>
+                      <span className="text-xs text-muted-foreground">{item.level}</span>
+                      <h3 className="font-bold text-foreground">{item.title}</h3>
+                    </div>
+                    <span className="text-2xl font-bold text-copper">{item.percentage}%</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground">{item.description}</p>
+                </div>
+              </div>
+              <div className="h-3 bg-muted rounded-full overflow-hidden">
+                <motion.div
+                  initial={{ width: 0 }}
+                  whileInView={{ width: `${item.percentage}%` }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1.5, delay: i * 0.3 }}
+                  className={`h-full rounded-full ${i === 0 ? "bg-gold" : i === 1 ? "bg-copper" : "bg-teal-mid"
+                    }`}
+                />
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* Daily Routine - Vertical Timeline */}
       <section className="container mx-auto">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
@@ -195,10 +193,10 @@ const GoalsAndRoutine = () => {
       <section className="container mx-auto">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">📋 সফল রামাদান পরিকল্পনা</h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">রামাদানের লক্ষ্য বাস্তবায়নের ৮টি মূলনীতি</p>
+          <p className="text-muted-foreground max-w-xl mx-auto">রামাদানের লক্ষ্য বাস্তবায়নের ১০টি মূলনীতি</p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-7xl mx-auto">
           {successPrinciples.map((p, i) => (
             <motion.div
               key={p.title}

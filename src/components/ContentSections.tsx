@@ -5,7 +5,7 @@ import {
   HeartCrack, Dumbbell, AlertCircle, CalendarX,
   ClipboardList, Settings, RotateCcw, HandMetal, Target,
   BookOpen, RefreshCw, AlertTriangle, Lightbulb, Flame,
-  Lock, DoorOpen, Utensils, Moon,
+  Lock, DoorOpen, Utensils, Moon, Users, Check,
 } from "lucide-react";
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -71,7 +71,7 @@ const ContentSections = () => {
           <p className="text-muted-foreground max-w-xl mx-auto">আখিরাত পিয়াসী বান্দারা পাঁচটি উপায়ে প্রস্তুতি নেয়:</p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-24">
+        <div className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto mb-24">
           {ramadanPreparation.map((item, i) => (
             <motion.div
               key={item.title}
@@ -80,7 +80,7 @@ const ContentSections = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               whileHover={{ y: -8 }}
-              className="relative glass-card rounded-3xl p-8 hover:shadow-2xl transition-all group border-primary/5 hover:border-primary/20"
+              className="relative glass-card rounded-3xl p-8 hover:shadow-2xl transition-all group border-primary/5 hover:border-primary/20 w-full md:w-[calc(50%-1.5rem)] lg:w-[calc(33.33%-1.5rem)]"
             >
               <div className="absolute -top-4 left-8 w-10 h-10 rounded-full gradient-copper text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg">
                 {i + 1}
@@ -99,21 +99,17 @@ const ContentSections = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-6xl mx-auto"
+          className="max-w-6xl mx-auto group"
         >
           <div className="glass-card rounded-[2rem] overflow-hidden border-destructive/20 bg-destructive/5 grid lg:grid-cols-2 gap-8 items-center">
             <div className="relative h-64 lg:h-full min-h-[300px] overflow-hidden">
               <img
-                src={worldlyRamadanPreparation.image}
+                src="unnecessary-iftar-foods.png"
                 alt="Worldly Preparation"
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-bold mb-2">
-                  <AlertTriangle className="w-3 h-3" />
-                  বিপরীত চিত্র
-                </div>
                 <h3 className="text-white font-bold text-xl">{worldlyRamadanPreparation.title}</h3>
               </div>
             </div>
