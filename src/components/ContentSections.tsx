@@ -1,0 +1,193 @@
+import { motion } from "framer-motion";
+import { failureReasons, threePSteps, ramadanPreparation } from "@/data/bookData";
+import {
+  CloudOff, Zap, TrendingDown, BookX, UserX, Clock,
+  HeartCrack, Dumbbell, AlertCircle, CalendarX,
+  ClipboardList, Settings, RotateCcw, HandMetal, Target,
+  BookOpen, RefreshCw, AlertTriangle, Lightbulb, Flame,
+} from "lucide-react";
+
+const iconMap: Record<string, React.ReactNode> = {
+  CloudOff: <CloudOff className="w-5 h-5" />,
+  Zap: <Zap className="w-5 h-5" />,
+  TrendingDown: <TrendingDown className="w-5 h-5" />,
+  BookX: <BookX className="w-5 h-5" />,
+  UserX: <UserX className="w-5 h-5" />,
+  Clock: <Clock className="w-5 h-5" />,
+  HeartCrack: <HeartCrack className="w-5 h-5" />,
+  Dumbbell: <Dumbbell className="w-5 h-5" />,
+  AlertCircle: <AlertCircle className="w-5 h-5" />,
+  CalendarX: <CalendarX className="w-5 h-5" />,
+  ClipboardList: <ClipboardList className="w-5 h-5" />,
+  Settings: <Settings className="w-5 h-5" />,
+  RotateCcw: <RotateCcw className="w-5 h-5" />,
+  HandMetal: <HandMetal className="w-5 h-5" />,
+  Target: <Target className="w-5 h-5" />,
+  BookOpen: <BookOpen className="w-5 h-5" />,
+  RefreshCw: <RefreshCw className="w-5 h-5" />,
+};
+
+const ContentSections = () => {
+  return (
+    <div className="py-20 px-4 space-y-24">
+      {/* Ramadan Preparation Section */}
+      <section className="container mx-auto">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">🌙 রামাদানের প্রস্তুতি</h2>
+          <p className="text-muted-foreground max-w-xl mx-auto">ঈমানদারদের রামাদান প্রস্তুতির ৫টি উপায়</p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-5 gap-4 max-w-5xl mx-auto">
+          {ramadanPreparation.map((item, i) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              whileHover={{ y: -8 }}
+              className="relative glass-card rounded-2xl p-6 text-center hover:shadow-xl transition-all group"
+            >
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full gradient-copper text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg">
+                {i + 1}
+              </div>
+              <div className="mt-6 mb-4 w-14 h-14 mx-auto rounded-2xl gradient-teal flex items-center justify-center text-primary-foreground group-hover:glow-teal transition-all">
+                {iconMap[item.icon]}
+              </div>
+              <h3 className="font-bold text-foreground mb-2 text-sm">{item.title}</h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">{item.description}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* 10 Failure Reasons */}
+      <section className="container mx-auto">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-destructive/10 mb-4">
+            <AlertTriangle className="w-4 h-4 text-destructive" />
+            <span className="text-sm font-medium text-destructive">সতর্কতা</span>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">⚠️ ব্যর্থতার ১০টি মূল কারণ</h2>
+          <p className="text-muted-foreground max-w-xl mx-auto">রামাদানের লক্ষ্য পূরণে ব্যর্থ হওয়ার পেছনে যে কারণগুলো কাজ করে</p>
+        </motion.div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
+          {failureReasons.map((reason, i) => (
+            <motion.div
+              key={reason.id}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.05 }}
+              whileHover={{ y: -6, scale: 1.03 }}
+              className="glass-card rounded-2xl p-5 hover:shadow-lg transition-all border-destructive/10 hover:border-destructive/30 group"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <span className="w-8 h-8 rounded-full bg-destructive/10 text-destructive flex items-center justify-center font-bold text-sm">
+                  {reason.id}
+                </span>
+                <div className="w-10 h-10 rounded-xl bg-destructive/10 text-destructive flex items-center justify-center group-hover:bg-destructive group-hover:text-primary-foreground transition-all">
+                  {iconMap[reason.icon]}
+                </div>
+              </div>
+              <h3 className="font-bold text-foreground text-sm mb-1">{reason.title}</h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">{reason.description}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Three P */}
+      <section className="container mx-auto">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full gradient-copper text-primary-foreground mb-4">
+            <Lightbulb className="w-4 h-4" />
+            <span className="text-sm font-bold">Three P</span>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">🎯 সফলতার তিন সূত্র</h2>
+          <p className="text-muted-foreground max-w-xl mx-auto">প্রজেক্ট ম্যানেজমেন্টের Three P বিধি</p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          {threePSteps.map((step, i) => (
+            <motion.div
+              key={step.title}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.2 }}
+              whileHover={{ y: -12 }}
+              className="relative"
+            >
+              {/* Connector line */}
+              {i < 2 && (
+                <div className="hidden md:block absolute top-1/2 -right-6 w-8 h-0.5 bg-gradient-to-r from-copper to-transparent" />
+              )}
+              <div className="gradient-teal rounded-3xl p-8 text-primary-foreground shadow-2xl glow-teal h-full">
+                <div className="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center mb-6">
+                  {iconMap[step.icon]}
+                </div>
+                <span className="text-6xl font-bold opacity-10 absolute top-4 right-6">{i + 1}</span>
+                <h3 className="text-xl font-bold mb-3">{step.title}</h3>
+                <p className="text-sm opacity-80 leading-relaxed">{step.description}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Fasting Levels - Visual */}
+      <section className="container mx-auto">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">🏆 সিয়ামের তিন স্তর</h2>
+          <p className="text-muted-foreground max-w-xl mx-auto">ইমাম গাজালী (রহ.) এর শ্রেণীবিভাগ অনুসারে</p>
+        </motion.div>
+
+        <div className="max-w-3xl mx-auto space-y-6">
+          {[
+            { level: "প্রথম স্তর", title: "সাধারণ সিয়াম", desc: "শুধু পানাহার ও যৌনমিলন থেকে বিরত থাকা", pct: 33, color: "bg-copper" },
+            { level: "দ্বিতীয় স্তর", title: "বিশেষ সিয়াম", desc: "সব ধরনের পাপ কাজ থেকেও নিজেকে দূরে রাখা", pct: 66, color: "bg-teal-mid" },
+            { level: "তৃতীয় স্তর", title: "সর্বোচ্চ সিয়াম", desc: "খারাপ চিন্তা-ভাবনা থেকেও নিজেকে হেফাজত করা", pct: 100, color: "bg-gold" },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.2 }}
+              className="glass-card rounded-2xl p-6"
+            >
+              <div className="flex items-center gap-4 mb-3">
+                <div className="w-12 h-12 rounded-2xl gradient-teal flex items-center justify-center text-primary-foreground">
+                  <Flame className="w-6 h-6" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center justify-between mb-1">
+                    <div>
+                      <span className="text-xs text-muted-foreground">{item.level}</span>
+                      <h3 className="font-bold text-foreground">{item.title}</h3>
+                    </div>
+                    <span className="text-2xl font-bold text-copper">{item.pct}%</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+                </div>
+              </div>
+              <div className="h-3 bg-muted rounded-full overflow-hidden">
+                <motion.div
+                  initial={{ width: 0 }}
+                  whileInView={{ width: `${item.pct}%` }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1.5, delay: i * 0.3 }}
+                  className={`h-full ${item.color} rounded-full`}
+                />
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default ContentSections;

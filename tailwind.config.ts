@@ -13,6 +13,11 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        bengali: ['"Noto Sans Bengali"', 'sans-serif'],
+        display: ['"Playfair Display"', 'serif'],
+        sans: ['Inter', '"Noto Sans Bengali"', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -47,6 +52,21 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        teal: {
+          deep: "hsl(var(--teal-deep))",
+          mid: "hsl(var(--teal-mid))",
+          light: "hsl(var(--teal-light))",
+          pale: "hsl(var(--teal-pale))",
+        },
+        copper: {
+          DEFAULT: "hsl(var(--copper))",
+          light: "hsl(var(--copper-light))",
+        },
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
+          light: "hsl(var(--gold-light))",
+        },
+        sand: "hsl(var(--sand))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
