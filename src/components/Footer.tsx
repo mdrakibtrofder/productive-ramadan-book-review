@@ -30,25 +30,6 @@ const Footer = () => {
               <li><a href="#authors" className="hover:text-foreground transition-colors flex items-center gap-2"><Heart className="w-4 h-4" /> লেখক পরিচিতি</a></li>
             </ul>
           </div>
-
-          {/* Publishers */}
-          <div>
-            <h3 className="font-bold text-foreground mb-4">প্রকাশনা সৌজন্যে</h3>
-            <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-muted flex items-center justify-center text-foreground">
-                  <BookOpen className="w-5 h-5" />
-                </div>
-                <span className="text-sm text-foreground">Ghuraba</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-muted flex items-center justify-center text-foreground">
-                  <ExternalLink className="w-5 h-5" />
-                </div>
-                <span className="text-sm text-foreground">The Terminals</span>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Divider */}
@@ -56,9 +37,6 @@ const Footer = () => {
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <p>© ২০২৬ প্রোডাক্টিভ রমাদান বই রিভিউ। সকল অধিকার সংরক্ষিত।</p>
-          <p className="flex items-center gap-1">
-            তৈরি করা হয়েছে <Heart className="w-4 h-4 text-copper" /> দিয়ে
-          </p>
         </div>
       </div>
     </footer>

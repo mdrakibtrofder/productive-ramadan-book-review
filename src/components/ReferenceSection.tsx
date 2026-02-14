@@ -30,37 +30,7 @@ const ReferenceSection = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">📚 রেফারেন্স</h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            এই রিভিউটি <strong>Ghuraba</strong> ও <strong>The Terminals</strong> এর সৌজন্যে প্রকাশিত
-          </p>
         </motion.div>
-
-        {/* Publishers */}
-        <div className="flex justify-center items-center gap-8 mb-12">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="glass-card rounded-2xl p-6 text-center"
-          >
-            <div className="w-16 h-16 mx-auto mb-3 rounded-2xl gradient-teal flex items-center justify-center text-primary-foreground">
-              <BookOpen className="w-8 h-8" />
-            </div>
-            <h3 className="font-bold text-foreground">Ghuraba</h3>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="glass-card rounded-2xl p-6 text-center"
-          >
-            <div className="w-16 h-16 mx-auto mb-3 rounded-2xl bg-accent flex items-center justify-center text-accent-foreground">
-              <Zap className="w-8 h-8" />
-            </div>
-            <h3 className="font-bold text-foreground">The Terminals</h3>
-          </motion.div>
-        </div>
 
         {/* Reference Cards */}
         <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
