@@ -1,9 +1,7 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { FileText, Download, ExternalLink, BookOpen, Eye, X } from "lucide-react";
+import { FileText, Download, BookOpen, Eye, Zap } from "lucide-react";
 
 const ReferenceSection = () => {
-  const [previewPdf, setPreviewPdf] = useState<string | null>(null);
 
   const references = [
     {
@@ -57,8 +55,8 @@ const ReferenceSection = () => {
             transition={{ delay: 0.1 }}
             className="glass-card rounded-2xl p-6 text-center"
           >
-            <div className="w-16 h-16 mx-auto mb-3 rounded-2xl bg-foreground flex items-center justify-center text-background">
-              <span className="text-xs font-bold leading-none">THE<br/>TERMINALS</span>
+            <div className="w-16 h-16 mx-auto mb-3 rounded-2xl bg-accent flex items-center justify-center text-accent-foreground">
+              <Zap className="w-8 h-8" />
             </div>
             <h3 className="font-bold text-foreground">The Terminals</h3>
           </motion.div>
@@ -83,13 +81,15 @@ const ReferenceSection = () => {
               <p className="text-sm text-muted-foreground mb-4">{ref.description}</p>
 
               <div className="flex gap-2">
-                <button
-                  onClick={() => setPreviewPdf(ref.file)}
+                <a
+                  href={ref.file}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-xl gradient-teal text-primary-foreground text-sm font-medium hover:shadow-lg transition-all"
                 >
                   <Eye className="w-4 h-4" />
-                  প্রিভিউ দেখুন
-                </button>
+                  দেখুন
+                </a>
                 <a
                   href={ref.file}
                   download
@@ -103,40 +103,6 @@ const ReferenceSection = () => {
           ))}
         </div>
 
-        {/* PDF Preview Modal */}
-        {previewPdf && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="fixed inset-0 z-50 bg-foreground/80 flex items-center justify-center p-4"
-            onClick={() => setPreviewPdf(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              className="bg-card rounded-2xl w-full max-w-4xl h-[80vh] overflow-hidden shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="flex items-center justify-between p-4 border-b border-border">
-                <h3 className="font-bold text-foreground">PDF প্রিভিউ</h3>
-                <div className="flex items-center gap-2">
-                  <a
-                    href={previewPdf}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 rounded-lg hover:bg-muted transition-colors"
-                  >
-                    <ExternalLink className="w-5 h-5 text-muted-foreground" />
-                  </a>
-                  <button onClick={() => setPreviewPdf(null)} className="p-2 rounded-lg hover:bg-muted transition-colors">
-                    <X className="w-5 h-5 text-muted-foreground" />
-                  </button>
-                </div>
-              </div>
-              <iframe src={previewPdf} className="w-full h-full" title="PDF Preview" />
-            </motion.div>
-          </motion.div>
-        )}
       </div>
     </section>
   );
