@@ -5,10 +5,12 @@ import ContentSections from "@/components/ContentSections";
 import GoalsAndRoutine from "@/components/GoalsAndRoutine";
 import ReferenceSection from "@/components/ReferenceSection";
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Navbar />
       <HeroSection />
       <TableOfContents />
       <AuthorsSection />

@@ -35,7 +35,7 @@ const iconMap: Record<string, React.ReactNode> = {
 
 const ContentSections = () => {
   return (
-    <div className="py-20 px-4 space-y-24">
+    <div id="content" className="py-20 px-4 space-y-24">
       {/* Ramadan Preparation Section */}
       <section className="container mx-auto">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">

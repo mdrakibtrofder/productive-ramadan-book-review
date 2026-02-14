@@ -30,22 +30,21 @@ const iconMap: Record<string, React.ReactNode> = {
   CircleDot: <CircleDot className="w-4 h-4" />,
 };
 
-type SuccessViewMode = "card" | "list" | "timeline" | "bento" | "radial";
+type SuccessViewMode = "card" | "list" | "timeline" | "bento";
 
 const GoalsAndRoutine = () => {
   const [expandedGoals, setExpandedGoals] = useState<Set<number>>(new Set([0, 1, 2, 3, 4, 5]));
-  const [successView, setSuccessView] = useState<SuccessViewMode>("card");
+  const [successView, setSuccessView] = useState<SuccessViewMode>("bento");
 
   const successViews: { mode: SuccessViewMode; label: string; icon: string }[] = [
+    { mode: "bento", label: "বেন্টো গ্রিড", icon: "LayoutGrid" },
     { mode: "card", label: "কার্ড", icon: "LayoutGrid" },
     { mode: "list", label: "লিস্ট", icon: "List" },
     { mode: "timeline", label: "টাইমলাইন", icon: "Timer" },
-    { mode: "bento", label: "বেন্টো গ্রিড", icon: "LayoutGrid" },
-    { mode: "radial", label: "রেডিয়াল", icon: "CircleDot" },
   ];
 
   return (
-    <div className="py-20 px-4 space-y-24 bg-secondary/30">
+    <div id="goals" className="py-20 px-4 space-y-24 bg-secondary/30">
       {/* Goal Categories - Accordion Cards */}
       <section className="container mx-auto">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
@@ -330,65 +329,6 @@ const GoalsAndRoutine = () => {
               </div>
             )}
 
-            {successView === "radial" && (
-              <div className="relative w-full max-w-2xl mx-auto aspect-square flex items-center justify-center">
-                <div className="absolute w-32 h-32 rounded-full gradient-copper flex items-center justify-center z-20 shadow-2xl glow-copper text-center p-4">
-                  <div className="text-primary-foreground">
-                    <Sparkles className="w-8 h-8 mx-auto mb-1 animate-pulse" />
-                    <span className="text-[10px] font-bold leading-tight block">সফল রামাদান পরিকল্পনা</span>
-                  </div>
-                </div>
-
-                {successPrinciples.map((p, i) => {
-                  const total = successPrinciples.length;
-                  const angle = (i / total) * 360 - 90;
-                  const radius = 38;
-                  const x = 50 + radius * Math.cos((angle * Math.PI) / 180);
-                  const y = 50 + radius * Math.sin((angle * Math.PI) / 180);
-
-                  return (
-                    <div
-                      key={p.title}
-                      className="absolute"
-                      style={{ left: `${x}%`, top: `${y}%`, transform: 'translate(-50%, -50%)' }}
-                    >
-                      <motion.div
-                        whileHover={{ scale: 1.3 }}
-                        className="glass-card w-14 h-14 rounded-full flex items-center justify-center shadow-2xl border-2 border-copper group overflow-hidden relative cursor-help bg-white dark:bg-zinc-900"
-                      >
-                        <Users className="w-6 h-6 text-copper z-10" />
-                        <div className="absolute inset-0 bg-copper/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-
-                        {/* Enhanced Tooltip for Radial Menu */}
-                        <div className="absolute bottom-full mb-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 pointer-events-none transition-all w-64 text-center z-50">
-                          <div className="glass-card shadow-2xl rounded-2xl p-5 border border-copper/30 bg-white/95 backdrop-blur-xl dark:bg-zinc-900/95">
-                            <div className="w-10 h-10 rounded-full gradient-copper flex items-center justify-center text-primary-foreground mx-auto mb-3 font-black">
-                              {i + 1}
-                            </div>
-                            <h4 className="font-black text-sm text-copper mb-2">{p.title}</h4>
-                            <p className="text-xs leading-relaxed text-muted-foreground">{p.desc}</p>
-                            <div className="absolute bottom-[-10px] left-1/2 -translate-x-1/2 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[10px] border-t-copper/30" />
-                          </div>
-                        </div>
-                      </motion.div>
-                    </div>
-                  )
-                })}
-
-                <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-10" viewBox="0 0 100 100">
-                  {successPrinciples.map((_, i) => {
-                    const total = successPrinciples.length;
-                    const angle = (i / total) * 360 - 90;
-                    const radius = 38;
-                    const x = 50 + radius * Math.cos((angle * Math.PI) / 180);
-                    const y = 50 + radius * Math.sin((angle * Math.PI) / 180);
-                    return (
-                      <line key={i} x1="50" y1="50" x2={x} y2={y} stroke="var(--copper)" strokeWidth="0.5" />
-                    )
-                  })}
-                </svg>
-              </div>
-            )}
           </motion.div>
         </AnimatePresence>
       </section>

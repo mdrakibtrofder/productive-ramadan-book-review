@@ -25,9 +25,13 @@ const Footer = () => {
           {/* Quick Links */}
           <div>
             <h3 className="font-bold text-foreground mb-4">দ্রুত লিংক</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#toc" className="hover:text-foreground transition-colors flex items-center gap-2"><BookOpen className="w-4 h-4" /> সূচিপত্র</a></li>
-              <li><a href="#authors" className="hover:text-foreground transition-colors flex items-center gap-2"><Heart className="w-4 h-4" /> লেখক পরিচিতি</a></li>
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-muted-foreground">
+              <li><a href="#home" className="hover:text-foreground transition-colors flex items-center gap-2 underline underline-offset-4 decoration-border">হোম</a></li>
+              <li><a href="#toc" className="hover:text-foreground transition-colors flex items-center gap-2 underline underline-offset-4 decoration-border">সূচিপত্র</a></li>
+              <li><a href="#authors" className="hover:text-foreground transition-colors flex items-center gap-2 underline underline-offset-4 decoration-border">লেখক</a></li>
+              <li><a href="#content" className="hover:text-foreground transition-colors flex items-center gap-2 underline underline-offset-4 decoration-border">প্রস্তুতি</a></li>
+              <li><a href="#goals" className="hover:text-foreground transition-colors flex items-center gap-2 underline underline-offset-4 decoration-border">লক্ষ্য ও রুটিন</a></li>
+              <li><a href="#references" className="hover:text-foreground transition-colors flex items-center gap-2 underline underline-offset-4 decoration-border">রেফারেন্স</a></li>
             </ul>
           </div>
         </div>
