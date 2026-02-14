@@ -23,7 +23,7 @@ const iconMap: Record<string, React.ReactNode> = {
 };
 
 const GoalsAndRoutine = () => {
-  const [expandedGoal, setExpandedGoal] = useState<number>(0);
+  const [expandedGoals, setExpandedGoals] = useState<Set<number>>(new Set([0, 1, 2, 3]));
 
   return (
     <div className="py-20 px-4 space-y-24 bg-secondary/30">
@@ -45,7 +45,11 @@ const GoalsAndRoutine = () => {
               className="glass-card rounded-2xl overflow-hidden"
             >
               <button
-                onClick={() => setExpandedGoal(expandedGoal === i ? -1 : i)}
+                onClick={() => {
+                  const next = new Set(expandedGoals);
+                  if (next.has(i)) next.delete(i); else next.add(i);
+                  setExpandedGoals(next);
+                }}
                 className={`w-full ${cat.color} p-6 text-primary-foreground flex items-center justify-between`}
               >
                 <div className="flex items-center gap-4">
@@ -54,11 +58,11 @@ const GoalsAndRoutine = () => {
                   </div>
                   <h3 className="font-bold text-lg text-left">{cat.title}</h3>
                 </div>
-                {expandedGoal === i ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+                {expandedGoals.has(i) ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
               </button>
 
               <AnimatePresence>
-                {expandedGoal === i && (
+                {expandedGoals.has(i) && (
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
