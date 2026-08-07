@@ -108,7 +108,7 @@ const DuaSection = () => {
               <p className="text-muted-foreground leading-relaxed mb-8">{morningAzkar.intro}</p>
               <motion.div
                 initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
-                className="gradient-hero pattern-islamic rounded-3xl p-8 md:p-10 text-primary-foreground glow-teal"
+                className="gradient-hero rounded-3xl p-8 md:p-10 text-primary-foreground glow-teal"
               >
                 <p dir="rtl" lang="ar" className="text-2xl md:text-3xl leading-[2.4] text-right mb-6" style={{ fontFamily: "'Noto Naskh Arabic', serif" }}>
                   {morningAzkar.arabic}

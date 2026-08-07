@@ -98,7 +98,7 @@ const NutritionSection = () => {
 
       {/* One-third rule */}
       <div className="container mx-auto">
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center gradient-hero pattern-islamic rounded-3xl p-8 md:p-12 text-primary-foreground">
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center gradient-hero rounded-3xl p-8 md:p-12 text-primary-foreground">
           <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="flex flex-col items-center">
             <svg viewBox="0 0 200 200" className="w-56 h-56 -rotate-90">
               {oneThirdRule.parts.map((p, i) => {
