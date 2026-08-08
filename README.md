@@ -1,73 +1,65 @@
-# Welcome to your Lovable project
+# productive-ramadan-book-review
 
-## Project info
+According to the first PDF
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+I want to build a book review website name "Productive Ramadan Book Review"
 
-## How can I edit this code?
+I want to make each of the content visually iin my website with diverse component, design, visulization to make it attractive and amazing for my reader
 
-There are several ways of editing your application.
 
-**Use Lovable**
+For সূচিপত্র, need three different ui which contains both topic and page number:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+1. The "Daily Journey" Timeline (Progressive Disclosure) 
 
-Changes made via Lovable will be committed automatically to this repo.
+2. he Bento Grid (Modular & Modern)
 
-**Use your preferred IDE**
+3. The Interactive "Radial Menu" (Circular Hub)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+The "Daily Journey" Timeline will default and rest of two as a button before UI for swiching on them
 
-Follow these steps:
+
+For লেখক ও অনুবাদক পরিচিতি:
+
+make every writer and translator as a card by card with different gradient color style for 
+
+
+
+লেখক পরিচিতি
+
+অনুবাদক পরিচিতি
+
+সংকলন ও অনুলিখন
+
+
+
+I need also list view for them for alternative view
+
+
+
+after that all content are in interactive dynamic, each of them in unique design and component, best styling, sections, sub sections, component, sub component, nested component with multiple view, graphs, charts, cards, especially icons for every point, paragraph, section or sub section, mapping and as possible content and component possible to visualize those content also multiple seperate summerization 
+
+For color theme follow 2nd attachment the book cover, additionally as reference in another section as reference books and note first on is reference note and 3rd file as reference book with PDF preview facilities at the end of the website this is from Ghuraba & The Terminals here are both of them logo 
+
+give me a nice amazing dynamic and interactive website for this Book review website
+
+This project was built with [Lovable](https://lovable.dev).
+
+## Build with Lovable
+
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/40484308-315e-4cfc-8129-8e53791da47e).
+
+- **Ship faster**: describe what you want to build and Lovable handles the code.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+
+## Development
+
+Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
+git clone <this-repository-url>
+cd <repository-name>
 npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
 ```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
